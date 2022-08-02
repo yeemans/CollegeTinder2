@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'rooms/index'
   devise_for :users, controllers: {
         registrations: 'registrations',
         sessions: 'users/sessions'
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   root "home#index"
+  get '/users/:id', to: 'users#profile'
   get '/users/:id/profile', to: 'users#profile', :as => :profile
   get '/notifications', to: 'users#notifications', :as => :notfications
   patch '/users/:id/change_avatar', to: 'users#change_avatar', :as => :change_avatar
