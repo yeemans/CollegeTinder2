@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ *= require_self
+ */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css");
+.pfp {
+  width: 10vh; 
+  height: 10vh;
+}
+
+.pfp :hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#logout {
+  display: inline;
+}
+
+h1 {
+  font-decoration: bold; 
+  font-size: 1.5em;
+}
+
+#friend_list {
+  overflow: scroll;
+  max-height: 30vh;
+}
+
+#profile_body {
+  margin-left: 5%;
+}
+
+nav {
+  margin-left: 5%;
+}
+
+button, .unhidden-button input {
+  margin-top: 15px;
+  border: none;
+  padding: 7px;
+  border-radius:10px;
+  color: white;
+  background-color: #6dcffd;
+  transition: all ease-in-out .5s;
+}
+
+.navbar {
+  background: transparent;
+}

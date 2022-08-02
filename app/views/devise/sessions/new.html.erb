@@ -1,0 +1,45 @@
+
+
+<section class="body">
+  <div class="login-container">
+    <div class="login-image">
+    <img class="logo" src="https://www.webwise.ie/wp-content/uploads/2015/09/tinder.png"/>
+    </div>
+    <div class="welcome-container">
+      <h1>Welcome Back!</h1>
+    </div>
+    <div class="form-container">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      
+        <div class="actions">
+          <%= f.submit "Log In" %>
+          <%= link_to "Sign up", "/users/sign_up" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+
+<% content_for :custom_styles do %>
+  <%= stylesheet_link_tag "login" %>
+<% end %>
+  
+  
+

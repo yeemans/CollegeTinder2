@@ -1,0 +1,55 @@
+<% if flash[:request_success] %>
+  <article class="message is-success">
+    <div class="message-header">
+      <p> <%= flash[:request_success] %> </p>
+      <button class="delete" aria-label="delete"></button>
+    </div>
+  </article>
+<% end %>
+
+<div class="columns"> 
+  <div class="column is-two-thirds" id="profile_body">
+    <h1> Welcome, <%= @username %> </h1>
+    <%= image_tag @avatar, :class => "pfp", :id => "profile_pic" %>
+    <%= render "update_profile_picture" if current_user == @user %>
+    <%= button_to "Friend", send_request_path(current_user.id, @user.id), :remote => true, 
+        :id => "friend_button" unless @requested_or_friended %>
+    <%= button_to "Message", message_path(@user.id), :method => "get" %>
+      
+    <p> Friends: <%= @friends.count %> </p>
+    
+    <!-- @user is the profile owner -->
+    <!-- form for setting user info like college and major --> 
+    <% if current_user == @user %>
+      <%= render :partial => "layouts/update_user", :locals => {:user_id => current_user.id} %>
+    <% end %>
+      
+    <%= render :partial => "layouts/user_info", :locals => {:user_id => @user.id} %>
+    <button id="change_college_info">Update </button>
+    <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => "logout" %>
+    
+    <%= javascript_pack_tag "profile" %>
+  </div>
+
+  <div class="column is-one-third">
+    <h1>Friends</h1>
+    <% if @friends.empty? %> 
+      <p> <%= @username %> got none ahh </p>
+    <% end %>
+
+    <div id="friend_list">
+      <% @friends.each do |friend| %> 
+        <%= render :partial => "layouts/friend_card", :locals => {:friend_id => friend.id} %>
+      <% end %>
+    </div>
+
+    <% if @user == current_user %>
+      <h1> People to Check Out</h1>
+      <% @people_to_check_out.each do |person| %> 
+        <%= render :partial => "layouts/friend_card", :locals => {:friend_id => person.id} %>
+      <% end %>
+    <% end %> 
+  </div>
+</div>
+
+<%= javascript_pack_tag "collegeForm" %>

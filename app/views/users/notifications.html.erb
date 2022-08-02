@@ -1,0 +1,12 @@
+<h1> Your Friend Requests </h1>
+<% @requests.each do |request| %> 
+  <%= render :partial => "layouts/friend_request", :locals => {:request_id => request.id,
+                                                               :sender_id => request.friend_1_id, 
+                                                               :pending => false} %>
+<% end %>
+<h1> Pending Reqeusts </h1>
+<% @pending_requests.each do |pending| %> 
+  <%= render :partial => "layouts/friend_request", :locals => {:request_id => pending.id,
+                                                               :sender_id => pending.friend_2_id,
+                                                               :pending => true} %>
+<% end %>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsRuby3</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- only apply css application.css when the user is logged in --> 
+    <% if current_user %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <% end %> 
+      
+    <%= javascript_pack_tag "app" %>
+      
+    <%= content_for?(:custom_styles) ? yield(:custom_styles) : '' %>
+  </head>
+
+  <body>
+    <%= render "layouts/navbar" %>
+    <%= yield %>
+  </body>
+</html>

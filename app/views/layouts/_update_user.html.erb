@@ -1,0 +1,22 @@
+<% @user = User.find(user_id) %>
+
+<%= form_with model: @user, :class => "hidden", :id => "college_form" do |form| %> 
+  <div>
+    <%= form.label :college, "College", :class => "label" %>
+    <%= form.text_field :college %>
+  </div>
+
+  <div>
+    <%= form.label :year, "Year", :class => "label" %>
+    <%= form.select :year, ['Freshman', 'Sophomore', 'Junior', 'Senior'] %>
+  </div>
+
+  <div> 
+    <%= form.label :major, "Major", :class => "label" %>
+    <%= form.text_field :major %> 
+  </div> 
+      
+  <div class="unhidden-button">
+    <%= form.submit %>
+  </div>
+<% end %>

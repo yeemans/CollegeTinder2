@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+
+html{
+  height: 100%;
+  width: 100%;
+  font-family: "Proxima Nova", sans-serif;
+}
+
+body {
+  justify-content: center;
+  display: flex;
+}
+
+section {
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d3d3;
+  min-width: 300px;
+  min-height: 75%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+p {
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+a {
+  color: blue;
+  
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url("https://educationsnapshots.com/wp-content/uploads/sites/4/2019/10/cal-poly-state-university-at-san-luis-obispo-student-housing-south-11.jpg");
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.logo {
+  max-height: 100px;
+  width: auto;
+  transition: all ease-in-out .5s;
+}
+
+.logo:hover {
+  filter: brightness(75%);
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: center;
+}
+.login-image {
+  padding: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container{
+  display: flex;
+  justify-content: center;
+}
+input[type=email], input[type=text], input[type=password], select {
+  margin-top: 10px;
+  border:1px solid #9a9898;
+  padding: 10px;
+  border-radius:10px;
+  text-align: left;
+}
+
+input[type=submit] {
+  margin-top: 15px;
+  border: none;
+  padding: 7px;
+  border-radius:10px;
+  color: white;
+  background-color: #6dcffd;
+  transition: all ease-in-out .5s;
+}
+input[type=submit]:hover {
+  background-color: #30b8f8;
+  cursor: pointer;
+}
+
+.have-an-account-container {
+  float: right;
+}
+
+.have-an-account {
+  float: right;
+  margin-top: 10px;
+  margin-right: 4px;
+}
+
+options {
+  
+}

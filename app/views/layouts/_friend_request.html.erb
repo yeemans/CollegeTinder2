@@ -1,0 +1,12 @@
+<% @request = FriendRequest.find(request_id) %> 
+<% @sender = User.find(sender_id) %> 
+<% @avatar = get_avatar(@sender) %> 
+
+<div class="friend-request">
+  <%= image_tag @avatar, :class => "pfp" %>
+  <%= get_username(@sender.email) %>
+  <% if !pending %>
+    <%= button_to "Accept", accept_request_path(request_id), :class => "request_button" %>
+    <%= button_to "Decline", decline_request_path(request_id), :class => "request_button" %>
+  <% end %>
+</div>

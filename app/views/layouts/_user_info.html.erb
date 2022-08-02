@@ -1,0 +1,9 @@
+<% @user = User.find(user_id) %> 
+<% @info = [@user.college, @user.year, @user.major] %>
+<div class="columns"> 
+  <% ['College', 'Year', "Major"].each_with_index do |category, index| %>
+    <div class="column"> 
+      <p><%= category %>: <%= @info[index] %> </p>
+    </div>
+  <% end %>
+</div>

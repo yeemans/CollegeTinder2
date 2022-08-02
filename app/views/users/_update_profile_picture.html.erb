@@ -1,0 +1,4 @@
+<%= form_with(model: @user, :html => { :id => "avatar_upload_form", :class => 'hidden' }, 
+  url: change_avatar_path(@user.id) ) do |f| %>
+  <%= f.file_field :avatar, :id => 'avatar_file' %>
+<% end %>
