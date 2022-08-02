@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_08_02_165604) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,8 +44,8 @@ ActiveRecord::Schema.define(version: 2022_08_02_165604) do
   end
 
   create_table "friend_requests", force: :cascade do |t|
-    t.integer "friend_1_id"
-    t.integer "friend_2_id"
+    t.bigint "friend_1_id"
+    t.bigint "friend_2_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_1_id"], name: "index_friend_requests_on_friend_1_id"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2022_08_02_165604) do
   end
 
   create_table "friendships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "friend_id"
+    t.bigint "user_id"
+    t.bigint "friend_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
@@ -59,8 +62,8 @@ ActiveRecord::Schema.define(version: 2022_08_02_165604) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,8 +72,8 @@ ActiveRecord::Schema.define(version: 2022_08_02_165604) do
   end
 
   create_table "participants", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_participants_on_room_id"

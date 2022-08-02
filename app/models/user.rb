@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :avatar
   scope :all_except, ->(user) { where.not(id: user) }
-  after_create_commit { broadcast_append_to "users" }
   
   has_many :friendships, dependent: :destroy  
   has_many :friends, -> { distinct }, through: :friendships

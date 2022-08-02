@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
   }
   
-  resources :users
+  resources :users, :except => [:show]
   resources :rooms do
     resources :messages
   end
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'users#profile', as: :authenticated_root
   end
+
   root "home#index"
   get '/users/:id/profile', to: 'users#profile', :as => :profile
   get '/notifications', to: 'users#notifications', :as => :notfications
