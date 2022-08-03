@@ -15,6 +15,14 @@
 // const imagePath = (name) => images(name, true)
 //= require jquery
 //= require 
-import "@hotwired/turbo-rails"
+
+export const getTurbo = async () => {
+    if (!window.Turbo) {
+        const Turbo = require('@hotwired/turbo')
+     await Turbo.start()
+        window.Turbo = Turbo
+    }
+       return window.Turbo
+    }
 
 
