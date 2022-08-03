@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :already_requested
   helper_method :already_friended
   helper_method :get_friends
+  helper_method :get_conversations
   
   def get_avatar(user)
     return url_for(user.avatar) if user.avatar.persisted?

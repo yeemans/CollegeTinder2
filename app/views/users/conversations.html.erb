@@ -1,0 +1,32 @@
+<div class="conversation-container">
+
+</div>
+
+<section class="box">
+
+    <div class="columns">
+        <ul class="column is-one-quarter block is-multiline scroller">
+        <% @chats.each_with_index do |chat, index| %>
+            <li class="box">
+                <article class="media">
+                <figure class="media-left">
+                    <p class="image is-48x48">
+                    <%= image_tag get_avatar(@receivers[index]), :class => "pfp" %>
+                    </p>
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                    <p>
+                    <strong>
+                        <%= link_to get_username(@receivers[index].email), profile_path(@receivers[index].id) %>
+                    </strong> 
+                      <br>
+                      <div class="last-message-content">
+                        <p> <%= link_to chat.messages.last.content, message_path(@receivers[index].id) %> <p>
+                      </div>
+                    </p>
+                </div>
+            </li>
+        <% end %>
+    </div>
+</section>

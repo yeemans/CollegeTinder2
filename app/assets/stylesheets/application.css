@@ -62,3 +62,8 @@ button, .unhidden-button input {
 .navbar {
   background: transparent;
 }
+
+.last-message-content p { 
+  max-width: 20vh;
+  word-wrap: break-word;
+}

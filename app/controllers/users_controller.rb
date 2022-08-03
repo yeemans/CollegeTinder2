@@ -95,10 +95,35 @@ class UsersController < ApplicationController
     render "rooms/index"
   end 
 
+  def conversations 
+    @chats = get_private_chats(current_user)
+    @receivers = []
+    @chats.each { |chat| @receivers.append( get_receiver(chat) ) }
+  end
+
   private
   def get_name(user1, user2)
     users = [user1, user2].sort
     "private_#{users[0].id}_#{users[1].id}"
   end
-  
+
+  def get_private_chats(user)
+    @rooms = Room.where(is_private: true)
+    @rooms_with_user = []
+
+    @rooms.each do |r| 
+      @participants = [User.find( r.participants[0].user_id ), User.find( r.participants[1].user_id ) ]
+      @rooms_with_user.append(r) if @participants.include?(user)
+    end
+
+    return @rooms_with_user
+  end
+
+  def get_receiver(room)
+    @participants = room.participants
+    talking_to_self = @participants[0].user_id == @participants[1].user_id
+    return User.find(@participants[0].user_id) if talking_to_self
+    @participants.each {|p| return User.find(p.user_id) if p.user_id != current_user.id }    
+  end
+
 end

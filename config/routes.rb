@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   post '/:request_id/decline', to: 'users#decline_request', :as => :decline_request
 
   get '/:id/message', to: 'users#message', :as => :message
+  get '/conversations', to: 'users#conversations', :as => :conversations
   
 end
