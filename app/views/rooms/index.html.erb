@@ -1,9 +1,11 @@
-<h3> Messaging <%= get_username(@user.email) %> </h3>
-<p> Messages: <%= @messages.count %> </p>
-<%= @single_room.inspect %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<%= turbo_stream_from @single_room %>
-<div id="messages">
-  <%= render @messages %>
+<div class="col-md-10 bg-dark text-light">
+  <h3> Messaging <%= get_username(@user.email) %> </h3>
+
+  <%= turbo_stream_from @single_room %>
+  <div id="messages">
+    <%= render @messages %>
+  </div>
+  <%= render partial: 'layouts/new_message_form' %>
 </div>
-<%= render partial: 'layouts/new_message_form' %>

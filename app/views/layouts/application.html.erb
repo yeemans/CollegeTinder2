@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+  
     <!-- only apply css application.css when the user is logged in --> 
     <% if current_user %>
       <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      
     <% end %> 
       
     <%= javascript_pack_tag "app" %>
       
     <%= content_for?(:custom_styles) ? yield(:custom_styles) : '' %>
+
+    <style>
+      <%= ".msg-#{current_user&.id}" %> {
+        background-color: #007bff !important;
+        padding: 10px;
+      }
+      <%= ".cont-#{current_user&.id}" %> {
+        display: flex;
+        justify-content: flex-end
+      }
+    </style>
   </head>
 
   <body>
