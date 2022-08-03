@@ -1,4 +1,5 @@
 <h3> Messaging <%= get_username(@user.email) %> </h3>
+<p> Messages: <%= @messages.count %> </p>
 <%= turbo_stream_from @single_room %>
 <div id="messages">
   <%= render @messages %>
