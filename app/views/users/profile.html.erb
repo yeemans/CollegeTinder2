@@ -25,7 +25,11 @@
     <% end %>
       
     <%= render :partial => "layouts/user_info", :locals => {:user_id => @user.id} %>
-    <button id="change_college_info">Update </button>
+
+    <% if current_user == @user %> 
+      <button id="change_college_info">Update </button>
+    <% end %>
+    
     <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => "logout" %>
     
     <%= javascript_pack_tag "profile" %>

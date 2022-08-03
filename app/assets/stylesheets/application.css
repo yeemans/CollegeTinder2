@@ -90,7 +90,7 @@ button, .unhidden-button input {
   padding: 5px;
   border-radius: 10px;
   margin-bottom: 10px;
-  background-color: #555555 ;
+  background-color: #ea8181 !important;
   padding: 10px;
   color: white;
 }
