@@ -99,10 +99,11 @@
     <div class="tinder--cards">
       <div class="tinder--card">
         <%= image_tag get_avatar(@user_in_card) %>
-        <h3> <%= get_username(@user_in_card) %> </h3>
-        <h3> <%= @user_in_card.year %> </h3>
-        <h3> <%= @user_in_card.major %> </h3> 
-        <h3> <%= @user_in_card.college %> </h3>
+        <h3> <%= get_username(@user_in_card) %>, 
+             <%= @user_in_card.year %>, 
+             <%= @user_in_card.major %>,  
+             <%= @user_in_card.college %> 
+        </h3>
       </div>
     </div>
 
