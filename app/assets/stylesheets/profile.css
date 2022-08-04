@@ -158,6 +158,11 @@ html, body {
     cursor: -moz-grab;
     cursor: grab;
   }
+
+  .tinder--card img { 
+    height: 35vh; 
+    width: 45vh;
+  }
   
   .moving.tinder--card {
     transition: none;
