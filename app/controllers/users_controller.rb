@@ -12,6 +12,14 @@ class UsersController < ApplicationController
     @friends = @user.friends
     @requested_or_friended = current_user.friends.include?(@user) || already_requested(current_user.id, @user.id)
     @people_to_check_out = User.all.last(3)
+
+
+    User.all.each do |user| 
+      if !current_user.friends.include?(user) && !already_requested(current_user.id, user.id) && user != current_user
+        @user_in_card = user 
+        break 
+      end
+    end
   end
 
   def match 

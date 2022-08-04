@@ -10,8 +10,12 @@
 <div class="columns"> 
   <div class="column is-two-thirds" id="profile_body">
     <h1> Welcome, <%= @username %> </h1>
+    <!--
     <%= image_tag @avatar, :class => "pfp", :id => "profile_pic" %>
-    <%= render "update_profile_picture" if current_user == @user %>
+    <%= render "update_profile_picture" if current_user == @user %> 
+
+    --> 
+
     <%= button_to "Friend", send_request_path(current_user.id, @user.id), :remote => true, 
         :id => "friend_button" unless @requested_or_friended %>
     <%= button_to "Message", message_path(@user.id), :method => "get" %>
@@ -68,7 +72,8 @@
       </div>
       <div class="avatar-image">
         <!--           pfp image -->
-        <%= image_tag @avatar, :id => "user-profile-image"%>
+        <%= image_tag @avatar, :class => "pfp", :id => "profile_pic" %>
+        <%= render "update_profile_picture" if current_user == @user %>
       </div>
       <!--         # of friends-->
       <div class="function-button-container">
@@ -77,6 +82,9 @@
         </div>
         <div class="avatar-button-container">
           <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => "logout", :class => "avatar-button" %>
+          <%= button_to "Friend", send_request_path(current_user.id, @user.id), :remote => true, 
+              :id => "friend_button" unless @requested_or_friended %>
+          <%= button_to "Message", message_path(@user.id), :method => "get" %>
         </div>
       </div>
     </div>
@@ -87,11 +95,16 @@
       <i class="fa fa-remove"></i>
       <i class="fa fa-heart"></i>
     </div>
+
     <div class="tinder--cards">
       <div class="tinder--card">
-        <img src="https://placeimg.com/600/300/people">
-        <h3>Demo card 1</h3>
-        <p>This is a demo for Tinder like swipe cards</p>
+        <%= image_tag get_avatar(@user_in_card) %>
+        <h3> <%= get_username(@user_in_card) %> </h3>
+        <ul>
+          <li> <%= @user_in_card.year %> </li>
+          <li> <%= @user_in_card.major %> </li> 
+          <li> <%= @user_in_card.college %> </li>
+        </ul>
       </div>
     </div>
 

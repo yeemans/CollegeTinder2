@@ -59,11 +59,13 @@ allCards.forEach(function (el) {
     var moveOutWidth = document.body.clientWidth;
     var keep = Math.abs(event.deltaX) < 50 || Math.abs(event.velocityX) < 0.1;
 
+    // swiped right, make friend request
     event.target.classList.toggle('removed', !keep);
       if (event.deltaX>0 && !keep){
         console.log("love");
         document.location.reload(true);
     }
+    // do not make friend request
     tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
     if (event.deltaX<0 && !keep){
         console.log("nope");
@@ -115,3 +117,4 @@ var loveListener = createButtonListener(true);
 
 nope.addEventListener('click', nopeListener);
 love.addEventListener('click', loveListener);
+
