@@ -10,9 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    unless resource # for invalid logins
+      flash[:login_eror] = "Login not recognized :("
+      redirect_to new_user_session_path
+    end
+    p "params: "
+    p params
+    super
+  end
 
   # GET /resource/edit
   # def edit
