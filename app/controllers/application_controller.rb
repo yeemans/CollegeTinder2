@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_username(user)
-    return user.username if user.username != nil
+    return user.username if user.username.present?
     postfix = user.email.reverse.index("@") # find chars to left of @symbol
     username = user.email.slice(0, user.email.length - postfix - 1)
     return username
