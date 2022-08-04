@@ -4,7 +4,7 @@
 
 <div class="friend-request">
   <%= image_tag @avatar, :class => "pfp" %>
-  <%= get_username(@sender.email) %>
+  <%= get_username(@sender) %>
   <% if !pending %>
     <%= button_to "Accept", accept_request_path(request_id), :class => "request_button" %>
     <%= button_to "Decline", decline_request_path(request_id), :class => "request_button" %>

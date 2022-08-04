@@ -11,9 +11,10 @@ class ApplicationController < ActionController::Base
     return 'default.webp'
   end
 
-  def get_username(email)
-    postfix = email.reverse.index("@") # find chars to left of @symbol
-    username = email.slice(0, email.length - postfix - 1)
+  def get_username(user)
+    return user.username if user.username
+    postfix = user.email.reverse.index("@") # find chars to left of @symbol
+    username = user.email.slice(0, user.email.length - postfix - 1)
     return username
   end
 

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def profile 
     @user = current_user
     @user = User.find(params[:id]) if params[:id]
-    @username = get_username(@user.email)
+    @username = get_username(@user)
     @avatar = get_avatar(@user)
     @friends = @user.friends
     @requested_or_friended = current_user.friends.include?(@user) || already_requested(current_user.id, @user.id)
