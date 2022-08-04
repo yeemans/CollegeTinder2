@@ -66,6 +66,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def swipe_send_request 
+    FriendRequest.create(:friend_1_id => params[:sender_id], 
+      :friend_2_id => params[:receiver_id])
+    flash[:request_success] = "Your friend request was sent" 
+    redirect_to profile_page(params[:sender_id])
+  end
+
   def accept_request 
     # create the friendship, then delete the request
     # check if friendship exists
