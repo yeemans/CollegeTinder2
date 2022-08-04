@@ -56,5 +56,71 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "collegeForm" %>
 
+
+<section class="cardRow">
+
+  <div class="avatar-container">
+    <div class="avatar-information">
+      <div class="avatar-name">
+        <!--           username -->
+        <h1> Welcome, <%= @username %> </h1>
+      </div>
+      <div class="avatar-image">
+        <!--           pfp image -->
+        <%= image_tag @avatar, :id => "user-profile-image"%>
+      </div>
+      <!--         # of friends-->
+      <div class="function-button-container">
+        <div class="avatar-button-container">
+          <a href="settings.html"><button class="avatar-button" id="settings">Settings</button></a>
+        </div>
+        <div class="avatar-button-container">
+          <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => "logout", :class => "avatar-button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tinder">
+    <div class="tinder--status">
+      <i class="fa fa-remove"></i>
+      <i class="fa fa-heart"></i>
+    </div>
+    <div class="tinder--cards">
+      <div class="tinder--card">
+        <img src="https://placeimg.com/600/300/people">
+        <h3>Demo card 1</h3>
+        <p>This is a demo for Tinder like swipe cards</p>
+      </div>
+    </div>
+
+    <div class="tinder--buttons">
+      <button id="nope"><i class="fa fa-remove"></i></button>
+      <button id="love"><i class="fa fa-heart"></i></button>
+    </div>
+  </div>
+  <!-- content for friends list -->
+  <div class="friends-container">
+    <div class="friends-information">
+      <div class="friends-list">
+        <h1>Friends List</h1>
+      </div>
+      <div class="friends-list-container">
+        <% @friends.each do |friend| %> 
+          <%= render :partial => "layouts/friend_card", :locals => {:friend_id => friend.id} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<%#= javascript_pack_tag "collegeForm" %>
+<%= javascript_pack_tag "profile" %>
+<%= stylesheet_link_tag "profile" %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"
+    integrity="sha512-qRj8N7fxOHxPkKjnQ9EJgLJ8Ng1OK7seBn1uk8wkqaXpa7OA13LO6txQ7+ajZonyc9Ts4K/ugXljevkFTUGBcw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>

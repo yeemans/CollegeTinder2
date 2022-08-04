@@ -1,5 +1,11 @@
 <% @friend = User.find(friend_id) %>
-<div class="card"> 
-  <%= image_tag get_avatar(@friend), :class => "pfp" %>
-  <%= link_to get_username(@friend), profile_path(@friend.id) %>
+
+<div class="friend-object">
+  <div class="friend-image-container">
+    <%= image_tag get_avatar(@friend), :class => "pfp"%>
+
+  </div>
+  <div class="friend-name">
+    <%= link_to get_username(@friend), profile_path(@friend.id) %>
+  </div>
 </div>
