@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     @people_to_check_out = User.all.last(3)
   end
 
+  def match 
+
+  end
+
   def notifications 
     @user = current_user
     @requests = FriendRequest.where(:friend_2_id => @user.id)

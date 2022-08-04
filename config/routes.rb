@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   get '/conversations', to: 'users#conversations', :as => :conversations
   get '/about', to: 'home#about', :as => :about
   get '/team', to: 'home#team', :as => :team
+  get '/match', to: 'users#match', :as => :match
   
 end
