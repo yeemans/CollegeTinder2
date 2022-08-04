@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     FriendRequest.create(:friend_1_id => params[:sender_id], 
       :friend_2_id => params[:receiver_id])
     flash[:request_success] = "Your friend request was sent" 
-    redirect_to profile_page(params[:sender_id])
+    redirect_to profile_path(params[:sender_id])
   end
 
   def accept_request 

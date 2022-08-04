@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/notifications', to: 'users#notifications', :as => :notfications
   patch '/users/:id/change_avatar', to: 'users#change_avatar', :as => :change_avatar
   
+  get '/:sender_id/:receiver_id/swipe_send_request', to: 'users#swipe_send_request', :as => :swipe_send_request
   post '/:sender_id/:receiver_id/send_request', to: 'users#send_request', :as => :send_request
   post '/:request_id/accept', to: 'users#accept_request', :as => :accept_request
   post '/:request_id/decline', to: 'users#decline_request', :as => :decline_request
