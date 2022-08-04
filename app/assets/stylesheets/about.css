@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+
+html{
+  height: 100%;
+  width: 100%;
+  font-family: "Proxima Nova", sans-serif;
+}
+
+section {
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+h1 {
+  font-size: 42px;
+  color: black;
+}
+
+h2 {
+  color: white;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-left{
+  display: flex;
+  
+}
+.nav-right {
+  float: right
+}
+
+.header {
+  background-color: transparent;
+  padding: 10px;
+  margin: 0px;
+    background: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/berry-college-historic-campus-at-twilight-royalty-free-image-1652127954.jpg");
+}
+
+.navbar-logo-container{
+  display: block;
+  justify-content: center;
+  height: 50px;
+  padding-right: 20px;
+}
+
+.navbar-item-container {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-item-anchor {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+.navbar-container {
+  padding: 15px;
+}
+
+.navbar-button {
+  text-decoration: none;
+  font-size: 18px;
+  margin: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  font-family: "Proxima Nova", sans-serif !important;
+  transition: all ease-in-out .25s;
+}
+
+
+.navigation-button {
+  text-decoration: none;
+  font-weight: bolder;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  padding: 10px 30px;
+  border-right: 2px solid white;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  font-family: "Proxima Nova", sans-serif !important;
+  transition: all ease-in-out .25s;
+}
+
+#team-button {
+  border: none;
+}
+
+.navigation-button:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  float: right;
+  cursor: pointer;
+  transition: all ease-in-out .5s;
+}
+
+#navbar-logo {
+  height: 50px;
+  width: 50px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.logo:hover {
+  filter: brightness(75%);
+}
+
+.login-register {
+  float: right;
+}
+
+#register-button {
+  background-color: white;
+}
+
+#register-text {
+  filter: brightness(60%);
+  font-weight: normal;
+      background: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/berry-college-historic-campus-at-twilight-royalty-free-image-1652127954.jpg");
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  margin: 0px;
+}
+
+#login-button:hover {
+  background-color: transparent;
+  color: white;
+}
+
+#login-button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#login-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#login-button:hover span {
+  padding-right: 25px;
+}
+
+#login-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+footer{
+  background-color: white;
+}
+
+.body {
+  justify-content: center;
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+}
+
+.home-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+#home-image {
+  height: 600px;
+  width: 300px;
+  transition: all ease-in-out .5s;
+}
+
+#home-image:hover {
+  filter: brightness(75%);
+  cursor: pointer;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item{
+  margin: 10px;
+  border-left: 4px solid black;
+  transition: all ease-in-out .5s;
+}
+
+.grid-item:hover{
+  background-color: lightgrey;
+}
+
+.social-media-logo {
+  height: 30px;
+  width: 30px;
+  filter: brightness(75%);
+  transition: all ease-in-out .25s;
+}
+
+.social-media-logo:hover {
+  filter: brightness(115%);
+  cursor: pointer;
+}
+
+.grid-item img {
+  margin: 3px;
+}
+
+.grid-container {
+  margin-left: 8px;
+}
+
+.grid-item:hover input[type=text]{
+  background-color: white;
+}
+
+input[type=text] {
+  border: 1px solid black;
+  background-color: #e1e0e0;
+  margin-top: -7px;
+  transition: .5s ease-in-out;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submit-button {
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 6px #999;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.submit-button:hover {
+  background-color: #3e8e41;
+  cursor: pointer;
+}
+
+.submit-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+.body{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.message-container {
+  min-height: 700px;
+  width: 70%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d3d3;
+  min-width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.message {
+  padding: 50px;
+  text-align: center;
+}
+
+.join-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius:10px;
+  color: white;
+  background-color: #6dcffd;
+  transition: all ease-in-out .5s;
+}
+
+.join-button:hover {
+  background-color: #30b8f8;
+  cursor: pointer;
+}
+
+.explanation-text {
+  font-size: 28px;
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-top: 14px;
+  line-height: 40px;
+  text-align: left;
+}
+
+.header-container{
+  border-bottom: 1px solid black;
+  margin-right: 25%;
+  margin-left: 25%;
+}

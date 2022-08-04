@@ -27,5 +27,7 @@ Rails.application.routes.draw do
 
   get '/:id/message', to: 'users#message', :as => :message
   get '/conversations', to: 'users#conversations', :as => :conversations
+  get '/about', to: 'home#about', :as => :about
+  get '/team', to: 'home#team', :as => :team
   
 end
