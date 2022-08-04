@@ -22,7 +22,9 @@
                     </strong> 
                       <br>
                       <div class="last-message-content">
-                        <p> <%= link_to chat.messages.last.content, message_path(@receivers[index].id) %> <p>
+                        <% if chat.messages.last %>
+                          <p> <%= link_to chat.messages.last.content, message_path(@receivers[index].id) %> <p>
+                        <% end %>
                       </div>
                     </p>
                 </div>
