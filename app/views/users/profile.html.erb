@@ -7,130 +7,88 @@
   </article>
 <% end %>
 
-<div class="columns"> 
-  <div class="column is-two-thirds" id="profile_body">
-    <h1> Welcome, <%= @username %> </h1>
-    <!--
-    <%= image_tag @avatar, :class => "pfp", :id => "profile_pic" %>
-    <%= render "update_profile_picture" if current_user == @user %> 
+<div class="profile-container">
+  <section class="cardRow">
 
-    --> 
+    <div class="avatar-container">
+      <div class="avatar-information">
+        <div class="avatar-name">
+          <!--           username -->
+          <h1> Welcome, <%= @username %> </h1>
+        </div>
+        <div class="avatar-image">
+          <!--           pfp image -->
+          <%= image_tag @avatar, :class => "pfp", :id => "profile_pic" %>
+          <%= render "update_profile_picture" if current_user == @user %>
+        </div>
+        <!--         # of friends-->
+        <div class="function-button-container">
+          <div class="avatar-button-container">
 
-    <%= button_to "Friend", send_request_path(current_user.id, @user.id), :remote => true, 
-        :id => "friend_button" unless @requested_or_friended %>
-    <%= button_to "Message", message_path(@user.id), :method => "get" %>
-      
-    <p> Friends: <%= @friends.count %> </p>
-    
-    <!-- @user is the profile owner -->
-    <!-- form for setting user info like college and major --> 
-    <% if current_user == @user %>
-      <%= render :partial => "layouts/update_user", :locals => {:user_id => current_user.id} %>
-    <% end %>
-      
-    <%= render :partial => "layouts/user_info", :locals => {:user_id => @user.id} %>
+            <% if current_user == @user %>
+              <button class="avatar-button" id="change_college_info">Settings</button></a>
+              <%= render :partial => "layouts/update_user", :locals => {:user_id => current_user.id} %>
+            <% end %>
 
-    <% if current_user == @user %> 
-      <button id="change_college_info">Update </button>
-    <% end %>
-    
-    <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => "logout" %>
-    
-    <%= javascript_pack_tag "profile" %>
-  </div>
+          </div>
+          <div class="avatar-button-container">
+            <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => "logout", :class => "avatar-button" %>
 
-  <div class="column is-one-third">
-    <h1>Friends</h1>
-    <% if @friends.empty? %> 
-      <p> <%= @username %> got none ahh </p>
-    <% end %>
+            <%= button_to "Friend", send_request_path(current_user.id, @user.id), :remote => true, 
+                :id => "friend_button" unless @requested_or_friended %>
 
-    <div id="friend_list">
-      <% @friends.each do |friend| %> 
-        <%= render :partial => "layouts/friend_card", :locals => {:friend_id => friend.id} %>
-      <% end %>
+            <%= button_to "Message", message_path(@user.id), :method => "get" %>
+
+          </div>
+        </div>
+      </div>
     </div>
 
-    <% if @user == current_user %>
-      <h1> People to Check Out</h1>
-      <% @people_to_check_out.each do |person| %> 
-        <%= render :partial => "layouts/friend_card", :locals => {:friend_id => person.id} %>
-      <% end %>
-    <% end %> 
-  </div>
+    <div class="tinder">
+      <div class="tinder--status">
+        <i class="fa fa-remove"></i>
+        <i class="fa fa-heart"></i>
+      </div>
+
+      <div class="tinder--cards">
+        <div class="tinder--card">
+          <% if @user_in_card %>
+            <h1> Swipe for this lad/lass? </h1>
+            <%= image_tag get_avatar(@user_in_card) %>
+            <p> Name: <%= get_username(@user_in_card) %> </p>
+                <p> Year: <%= @user_in_card.year %> </p>
+                <p> Major: <%= @user_in_card.major %> </p>
+                <p> College: <%= @user_in_card.college %> </p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="tinder--buttons">
+        <button id="nope"><i class="fa fa-remove"></i></button>
+        <button id="love"><i class="fa fa-heart"></i></button>
+      </div>
+    </div>
+    <!-- content for friends list -->
+    <div class="friends-container">
+      <div class="friends-information">
+        <div class="friends-list">
+          <h1>Info</h1>
+          <%= render :partial => "layouts/user_info", :locals => {:user_id => @user.id}%>
+        </div>
+        <div class="friends-list-container">
+          <h1> Friends </h1>
+          <% @friends.each do |friend| %> 
+            <%= render :partial => "layouts/friend_card", :locals => {:friend_id => friend.id} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </section>
 </div>
 
 
-
-<section class="cardRow">
-
-  <div class="avatar-container">
-    <div class="avatar-information">
-      <div class="avatar-name">
-        <!--           username -->
-        <h1> Welcome, <%= @username %> </h1>
-      </div>
-      <div class="avatar-image">
-        <!--           pfp image -->
-        <%= image_tag @avatar, :class => "pfp", :id => "profile_pic" %>
-        <%= render "update_profile_picture" if current_user == @user %>
-      </div>
-      <!--         # of friends-->
-      <div class="function-button-container">
-        <div class="avatar-button-container">
-          <a href="settings.html"><button class="avatar-button" id="settings">Settings</button></a>
-        </div>
-        <div class="avatar-button-container">
-          <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => "logout", :class => "avatar-button" %>
-          <%= button_to "Friend", send_request_path(current_user.id, @user.id), :remote => true, 
-              :id => "friend_button" unless @requested_or_friended %>
-          <%= button_to "Message", message_path(@user.id), :method => "get" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tinder">
-    <div class="tinder--status">
-      <i class="fa fa-remove"></i>
-      <i class="fa fa-heart"></i>
-    </div>
-
-    <div class="tinder--cards">
-      <div class="tinder--card">
-        <% if @user_in_card %>
-          <%= image_tag get_avatar(@user_in_card) %>
-          <p> <%= get_username(@user_in_card) %> </p>
-              <p> <%= @user_in_card.year %> </p>
-              <p> <%= @user_in_card.major %> </p>
-              <p> <%= @user_in_card.college %> </p>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="tinder--buttons">
-      <button id="nope"><i class="fa fa-remove"></i></button>
-      <button id="love"><i class="fa fa-heart"></i></button>
-    </div>
-  </div>
-  <!-- content for friends list -->
-  <div class="friends-container">
-    <div class="friends-information">
-      <div class="friends-list">
-        <h1>Friends List</h1>
-      </div>
-      <div class="friends-list-container">
-        <% @friends.each do |friend| %> 
-          <%= render :partial => "layouts/friend_card", :locals => {:friend_id => friend.id} %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<%#= javascript_pack_tag "collegeForm" %>
+<%= javascript_pack_tag "collegeForm" %>
 <%= javascript_pack_tag "profile" %>
 <%= stylesheet_link_tag "profile" %>
 

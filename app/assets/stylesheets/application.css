@@ -95,3 +95,12 @@ button, .unhidden-button input {
   padding: 10px;
   color: white;
 }
+
+.profile-container { 
+  margin: auto;
+}
+
+.user-info { 
+  background: white; 
+  width: 100%;
+}
