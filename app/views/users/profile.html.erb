@@ -153,8 +153,7 @@
       event.target.classList.toggle('removed', !keep);
         if (event.deltaX>0 && !keep){
           console.log("love");
-          document.location.reload(true);
-          //window.location = "http://localhost:3000" + "/<%= current_user.id %>" + "/<%= @user_in_card.id %>" + "/swipe_send_request";
+          //document.location.reload(true);
           <% if @user_in_card %>
             window.location = "https://collegetinder.herokuapp.com/" + "/<%= current_user.id %>" + "/<%= @user_in_card.id %>" + "/swipe_send_request";
           <% end %>
