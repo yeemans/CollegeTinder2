@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 "Saucy ass app for somebody's application. If you see someone list this under "projects" you know they've earned the role. Certified and Hired."
 - Me
 =======
+=======
+>>>>>>> parent of 1494601... Update README.md
 # Rails on Replit
 
 This is a template to get you started with Rails on Replit. It's ready to go so you can just hit run and start coding!
@@ -26,5 +29,9 @@ SQLite would work in development but we don't recommend running it in production
 
 ## Help
 
+<<<<<<< HEAD
+If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Feel free to report bugs and give us feedback [here](https://replit.com/support).
+>>>>>>> parent of 1494601... Update README.md
+=======
 If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Feel free to report bugs and give us feedback [here](https://replit.com/support).
 >>>>>>> parent of 1494601... Update README.md
