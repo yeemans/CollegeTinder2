@@ -144,9 +144,9 @@ h4 {
 }
 
 #register-text {
-  filter: brightness(150%)
+  filter: brightness(150%);
   font-weight: normal;
-      background: url("https://media.cntraveler.com/photos/56953c34e17ca74e420e0a3b/master/w_2048,h_1536,c_limit/GettyImages-University-of-Chicago-Matt-Frankel-correced.jpg");
+  background: url("https://media.cntraveler.com/photos/56953c34e17ca74e420e0a3b/master/w_2048,h_1536,c_limit/GettyImages-University-of-Chicago-Matt-Frankel-correced.jpg");
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   margin: 0;

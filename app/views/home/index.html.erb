@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 
 <section class="header">
-  <div class="navbar-container">
-    <nav class="navbar">
-      <img id="navbar-logo" src="https://1000logos.net/wp-content/uploads/2018/07/Tinder-logo.png"/>
-      <a href=""><button id="home-button" class="navigation-button">Home</button></a>
-      <a href="about.html"><button id="about-button" class="navigation-button">About</button></a>
-      <a href="team.html"><button id="team-button" class="navigation-button">Team</button></a>
-      
-      <a class="login-register" href=<%= new_user_registration_path %> > 
-        <button id="register-button" class="navbar-button"><p id="register-text">Register</p></button></a>
-      
-      <a class="login-register" href=<%= new_user_session_path %> >
-        <button id="login-button" class="navbar-button"><span>Sign In</span></button></a>
-    </nav>
-  </div>
+      <div class="navbar-container">
+      <nav class="navbar">
+        <div class="nav-left">
+        <div class="navbar-item-container">
+          <a class="navbar-logo-container">
+            <%= image_tag "logo.png", :id => "navbar-logo" %>
+          </a>
+        </div>
+        <div class="navbar-item-container">
+          <a class="navbar-item-anchor" href="profile.html"><button id="home-button" class="navigation-button">Home</button></a>
+        </div>
+        <div class="navbar-item-container">
+        <a class="navbar-item-anchor" href="about.html"><button id="about-button" class="navigation-button">About</button></a>
+        </div>
+        <div class="navbar-item-container">
+        <a class="navbar-item-anchor" href="team.html"><button id="team-button" class="navigation-button">Team</button></a>
+        </div>
+        </div>
+        <div class="nav-right">
+          <a class="login-register" href=<%= new_user_registration_path %> > 
+            <button id="register-button" class="navbar-button"><p id="register-text">Register</p></button>
+          </a>
+          <a class="login-register" href=<%= new_user_session_path %> >
+            <button id="login-button" class="navbar-button"><span>Sign In</span></button>
+          </a>
+        </div>
+      </nav>
+    </div>
     <section class="body">
   <div class="take-action-container">
     <h1 id="swipe-it">Don't Be Afraid to Swipe →</h1>
