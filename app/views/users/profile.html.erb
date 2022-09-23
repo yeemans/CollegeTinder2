@@ -19,6 +19,8 @@
         <div class="avatar-image">
           <!--           pfp image -->
           <%= image_tag @avatar, :class => "pfp", :id => "profile_pic" %>
+        </div>
+        <div>
           <%= render "update_profile_picture" if current_user == @user %>
         </div>
         <!--         # of friends-->
